@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopee Revan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #f53d2d;
+      --secondary: #ff9900;
+      --bg: #ffffff;
+      --text: #333;
+      --card: #f9f9f9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 20px;
+      padding: 10px 16px;
+      background: #fff;
+      color: var(--primary);
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .banner {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 40px 10%;
+    }
+
+    .section h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: var(--card);
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .product img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product h4 {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .price {
+      color: var(--primary);
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .btn-cart {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    #cart-box {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: white;
+      width: 300px;
+      max-height: 500px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      overflow-y: auto;
+      padding: 15px;
+      display: none;
+      z-index: 999;
+    }
+
+    #cart-box h3 {
+      margin-bottom: 10px;
+    }
+
+    #cart-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px dotted #ccc;
+    }
+
+    #cart-list button {
+      background: none;
+      border: none;
+      color: red;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #checkout {
+      margin-top: 15px;
+      background: var(--secondary);
+      color: white;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #form-checkout input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+    }
+
+    .show-cart-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 998;
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html" class="back-btn">← Kembali ke Portofolio</a>
+
+<header>
+  <h1>Shopee Revan</h1>
+  <nav>
+    <a href="#elektronik">Elektronik</a>
+    <a href="#fashion">Fashion</a>
+    <a href="#sepatu">Sepatu</a>
+    <a href="login.html">Login</a>
+  </nav>
+</header>
+
+<div class="banner">🔥 Diskon 70% untuk semua kategori! Hari ini saja! 🔥</div>
+
+<section class="section" id="elektronik">
+  <h2>Elektronik</h2>
+  <div class="products">
+    <div class="product">
+      <img src="download (2).jpg" alt="Earphone">
+      <h4>Earphone ECLE Bluetooth</h4>
+      <div class="price">129000</div>
+      <button class="btn-cart" onclick="addToCart('Earphone ECLE Bluetooth', 129000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="product">
+      <img src="download (3).jpg" alt="Speaker">
+      <h4>Speaker Mini</h4>
+      <div class="price">159000</div>
+      <button class="btn-cart" onclick="addToCart('Speaker Mini', 159000)">Tambah ke Keranjang</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="fashion">
+  <h2>Fashion</h2>
+  <div class="products">
+    <div class="product">
+      <img src="download.jpg" alt="Kaos">
+      <h4>Kaos Arrogance Hitam</h4>
+      <div class="price">89000</div>
+      <button class="btn-cart" onclick="addToCart('Kaos Arrogance Hitam', 89000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="product">
+      <img src="download (4).jpg" alt="Hoodie">
+      <h4>Hoodie Oversize Cream</h4>
+      <div class="price">149000</div>
+      <button class="btn-cart" onclick="addToCart('Hoodie Oversize Cream', 149000)">Tambah ke Keranjang</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sepatu">
+  <h2>Sepatu</h2>
+  <div class="products">
+    <div class="product">
+      <img src="download (1).jpg" alt="Sepatu Hitam">
+      <h4>Sepatu Sneakers Hitam</h4>
+      <div class="price">199000</div>
+      <button class="btn-cart" onclick="addToCart('Sepatu Sneakers Hitam', 199000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="product">
+      <img src="download (5).jpg" alt="Canvas">
+      <h4>Sepatu Canvas Putih</h4>
+      <div class="price">179000</div>
+      <button class="btn-cart" onclick="addToCart('Sepatu Canvas Putih', 179000)">Tambah ke Keranjang</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Shopee Revan | Dibuat dengan ❤ di SMK
+</footer>
+
+<button class="show-cart-btn" onclick="toggleCart()">🛒 Keranjang</button>
+
+<div id="cart-box">
+  <h3>Keranjang Belanja</h3>
+  <ul id="cart-list"></ul>
+  <p><strong>Total:</strong> Rp<span id="total">0</span></p>
+  <div id="form-checkout">
+    <input type="text" id="nama" placeholder="Nama Lengkap">
+    <input type="text" id="alamat" placeholder="Alamat Lengkap">
+    <input type="tel" id="nohp" placeholder="Nomor HP">
+  </div>
+  <button id="checkout" onclick="checkout()">Checkout Sekarang</button>
+</div>
+
+<script>
+  let cart = [];
+
+  function addToCart(nama, harga) {
+    cart.push({ nama, harga });
+    alert(nama + " ditambahkan ke keranjang.");
+    updateCart();
+  }
+
+  function updateCart() {
+    const list = document.getElementById("cart-list");
+    const total = document.getElementById("total");
+    list.innerHTML = "";
+    let sum = 0;
+
+    cart.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.innerHTML = `${item.nama} - Rp${item.harga} <button onclick="hapusItem(${index})">x</button>`;
+      list.appendChild(li);
+      sum += item.harga;
+    });
+
+    total.innerText = sum.toLocaleString("id-ID");
+  }
+
+  function hapusItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+
+  function toggleCart() {
+    const box = document.getElementById("cart-box");
+    box.style.display = box.style.display === "none" || box.style.display === "" ? "block" : "none";
+  }
+
+  function checkout() {
+    const nama = document.getElementById("nama").value.trim();
+    const alamat = document.getElementById("alamat").value.trim();
+    const nohp = document.getElementById("nohp").value.trim();
+
+    if (cart.length === 0) {
+      alert("Keranjang kosong!");
+      return;
+    }
+
+    if (!nama || !alamat || !nohp) {
+      alert("Mohon lengkapi formulir checkout!");
+      return;
+    }
+
+    let totalHarga = cart.reduce((acc, item) => acc + item.harga, 0);
+    alert(`Checkout Berhasil!\n\nNama: ${nama}\nAlamat: ${alamat}\nNo. HP: ${nohp}\nTotal Bayar: Rp${totalHarga.toLocaleString("id-ID")}`);
+
+    cart = [];
+    updateCart();
+
+    document.getElementById("nama").value = "";
+    document.getElementById("alamat").value = "";
+    document.getElementById("nohp").value = "";
+
+    toggleCart();
+  }
+</script>
+
+</body>
+</html>

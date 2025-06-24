@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Ultra Modern</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      height: 100vh;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      padding: 3rem 2.5rem;
+      width: 350px;
+      color: white;
+      animation: slideUp 0.8s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      font-size: 1.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .input-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .input-group svg {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      fill: #ccc;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .input-group input::placeholder {
+      color: #ccc;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #00bcd4;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.9rem;
+      background: #00bcd4;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #0199aa;
+    }
+
+    .forgot {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .forgot a {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .forgot a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Masuk Akun</h2>
+     <!-- Tombol balik ke index.html -->
+  <a href="index.html" class="back-btn">← Kembali ke Portofolio</a>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <!-- User Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+        </svg>
+        <input type="text" id="username" placeholder="Username" required />
+      </div>
+      <div class="input-group">
+        <!-- Lock Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-10h-1V6c0-2.8-2.2-5-5-5S7 3.2 7 6v1H6c-1.1 0-2 .9-2 2v11c0 
+            1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-6-4c1.7 0 3 1.3 3 3v1H9V6c0-1.7 1.3-3 3-3z"/>
+        </svg>
+        <input type="password" id="password" placeholder="Password" required />
+      </div>
+      <button class="btn" type="submit">Login</button>
+    </form>
+    <div class="forgot">
+      <a href="#">Lupa password?</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+
+      if (!user || !pass) {
+        alert("Isi username dan password!");
+        return;
+      }
+
+      if (user === "admin" && pass === "12345") {
+        alert("Login sukses!");
+        window.location.href = "portofolio.html";
+      } else {
+        alert("Login gagal! Cek username atau password.");
+      }
+    });
+  </script>
+
+</body>
+</html>
